@@ -60,7 +60,7 @@ insurance-claim-app/
 11. region_southeast
 12. region_southwest
 
-> Note: Categorical features are one-hot encoded. Only one child/region should be marked as 1.
+> Note: Categorical features are one-hot encoded.
 
 ## 📂 Files Explained
 
@@ -92,6 +92,6 @@ pip freeze > requirements.txt
 
 ---
 
-Made with ❤️ for Machine Learning Deployment!
+
 
 

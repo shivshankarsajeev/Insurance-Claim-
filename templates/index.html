@@ -1,34 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Insurance Claim Prediction</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 50px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
         }
+
         .container {
-            max-width: 600px;
-            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
         }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
         label {
+            font-weight: bold;
             display: block;
             margin-top: 15px;
+            color: #444;
         }
+
         input, select {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
         }
+
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background-color: #4CAF50;
+            color: white;
             font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
-        .result {
-            margin-top: 30px;
-            font-weight: bold;
-            color: green;
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -42,7 +74,22 @@
             <label>BMI:</label>
             <input type="number" step="any" name="bmi" required>
 
-            <label>Number of Children:</label>
+            <label>Charges:</label>
+            <input type="number" step="any" name="charges" required>
+
+            <label>Sex:</label>
+            <select name="sex" required>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+            </select>
+
+            <label>Smoker:</label>
+            <select name="smoker" required>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <label>Children:</label>
             <select name="children" required>
                 <option value="0">0</option>
                 <option value="1">1</option>
@@ -52,37 +99,16 @@
                 <option value="5">5</option>
             </select>
 
-            <label>Charges:</label>
-            <input type="number" step="any" name="charges" required>
-
-            <label>Sex:</label>
-            <select name="sex">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-
-            <label>Smoker:</label>
-            <select name="smoker">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-
             <label>Region:</label>
-            <select name="region">
-                <option value="southwest">Southwest</option>
-                <option value="southeast">Southeast</option>
-                <option value="northeast">Northeast</option>
-                <option value="northwest">Northwest</option>
+            <select name="region" required>
+                <option value="0">Northeast</option>
+                <option value="1">Northwest</option>
+                <option value="2">Southeast</option>
+                <option value="3">Southwest</option>
             </select>
 
             <button type="submit">Predict</button>
         </form>
-
-        {% if prediction is not none %}
-            <div class="result">
-                Prediction: {{ prediction }}
-            </div>
-        {% endif %}
     </div>
 </body>
 </html>

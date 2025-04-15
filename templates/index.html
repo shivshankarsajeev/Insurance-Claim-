@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance Claim Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 30px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Insurance Claim Prediction</h2>
+        <form method="POST" action="/predict">
+            <label>Age:</label>
+            <input type="number" name="age" required>
+
+            <label>BMI:</label>
+            <input type="number" step="any" name="bmi" required>
+
+            <label>Number of Children:</label>
+            <select name="children" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <label>Charges:</label>
+            <input type="number" step="any" name="charges" required>
+
+            <label>Sex:</label>
+            <select name="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label>Smoker:</label>
+            <select name="smoker">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Region:</label>
+            <select name="region">
+                <option value="southwest">Southwest</option>
+                <option value="southeast">Southeast</option>
+                <option value="northeast">Northeast</option>
+                <option value="northwest">Northwest</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                Prediction: {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

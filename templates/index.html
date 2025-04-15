@@ -1,66 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Insurance Claim Prediction</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
+            background: #f3f3f3;
+            margin: 0;
+            padding: 40px;
         }
-
         .container {
-            background-color: white;
+            background: #fff;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
             max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
         }
-
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 15px;
-            color: #444;
-        }
-
         input, select {
             width: 100%;
             padding: 10px;
-            margin-top: 5px;
-            border-radius: 6px;
+            margin: 8px 0 20px;
             border: 1px solid #ccc;
+            border-radius: 4px;
         }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 25px;
+        input[type=submit] {
             background-color: #4CAF50;
             color: white;
-            font-size: 16px;
             border: none;
-            border-radius: 8px;
             cursor: pointer;
         }
-
-        button:hover {
-            background-color: #45a049;
+        h2 {
+            text-align: center;
         }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
@@ -68,28 +46,36 @@
     <div class="container">
         <h2>Insurance Claim Prediction</h2>
         <form method="POST" action="/predict">
-            <label>Age:</label>
-            <input type="number" name="age" required>
+            <label for="age">Age:</label>
+            <input type="number" step="any" name="age" required>
 
-            <label>BMI:</label>
+            <label for="bmi">BMI:</label>
             <input type="number" step="any" name="bmi" required>
 
-            <label>Charges:</label>
+            <label for="charges">Charges:</label>
             <input type="number" step="any" name="charges" required>
 
-            <label>Sex:</label>
+            <label for="sex">Sex:</label>
             <select name="sex" required>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
             </select>
 
-            <label>Smoker:</label>
+            <label for="smoker">Smoker:</label>
             <select name="smoker" required>
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
             </select>
 
-            <label>Children:</label>
+            <label for="region">Region:</label>
+            <select name="region" required>
+                <option value="0">Southwest</option> <!-- dropped in OHE -->
+                <option value="1">Southeast</option>
+                <option value="2">Northwest</option>
+                <option value="3">Northeast</option>
+            </select>
+
+            <label for="children">Number of Children:</label>
             <select name="children" required>
                 <option value="0">0</option>
                 <option value="1">1</option>
@@ -99,16 +85,12 @@
                 <option value="5">5</option>
             </select>
 
-            <label>Region:</label>
-            <select name="region" required>
-                <option value="0">Northeast</option>
-                <option value="1">Northwest</option>
-                <option value="2">Southeast</option>
-                <option value="3">Southwest</option>
-            </select>
-
-            <button type="submit">Predict</button>
+            <input type="submit" value="Predict">
         </form>
+
+        {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+        {% endif %}
     </div>
 </body>
 </html>

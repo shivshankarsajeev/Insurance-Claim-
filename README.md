@@ -4,7 +4,7 @@ This Flask-based web application allows users to **predict the likelihood of an 
 
 ---
 
-## 📝 Description
+##  Description
 
 Insurance claim prediction is a critical task in the healthcare insurance industry, aiming to anticipate whether a policyholder will claim insurance. This helps companies in **risk assessment, fraud detection**, and **premium pricing**.
 
@@ -14,7 +14,7 @@ The model classifies whether an insurance claim is likely (`1`) or not (`0`) bas
 
 ---
 
-## 📊 Dataset Overview
+##  Dataset Overview
 
 The dataset contains the following features:
 
@@ -30,11 +30,11 @@ The dataset contains the following features:
 | `charges`       | Medical costs billed to health insurance |
 | `insuranceclaim`| Target variable: Claim made (yes = 1, no = 0) |
 
-> 📌 **Note**: This dataset is derived from the [Medical Cost Personal Datasets](https://www.kaggle.com/datasets/mirichoi0218/insurance) on Kaggle.
+>  **Note**: This dataset is derived from the [Medical Cost Personal Datasets](https://www.kaggle.com/datasets/mirichoi0218/insurance) on Kaggle.
 
 ---
 
-## 🧠 Machine Learning Pipeline
+##  Machine Learning Pipeline
 
 - **Models Used**:
   - Logistic Regression
@@ -48,7 +48,7 @@ The dataset contains the following features:
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 insurance-claim-app/
@@ -63,7 +63,7 @@ insurance-claim-app/
 
 ---
 
-## 💻 Setup Instructions
+##  Setup Instructions
 
 1. **Clone the Repository**
    ```bash
@@ -89,7 +89,7 @@ insurance-claim-app/
 
 ---
 
-## 🧾 Input Features (Order-Sensitive)
+##  Input Features (Order-Sensitive)
 
 The app expects the following **scaled and one-hot encoded features** in this exact order:
 
@@ -106,11 +106,11 @@ The app expects the following **scaled and one-hot encoded features** in this ex
 11. `region_southeast`  
 12. `region_southwest`
 
-> ⚠️ Note: Features are transformed using one-hot encoding and scaled prior to model input.
+>  Note: Features are transformed using one-hot encoding and scaled prior to model input.
 
 ---
 
-## 📦 Requirements
+##  Requirements
 
 ```
 Flask  
@@ -126,7 +126,7 @@ pip freeze > requirements.txt
 
 ---
 
-## 🌟 Future Enhancements
+##  Future Enhancements
 
 - Replace text fields with dropdowns/radio buttons for better UX  
 - Visualize prediction probability using charts or progress bars  
@@ -135,7 +135,7 @@ pip freeze > requirements.txt
 
 ---
 
-## 🎯 Objective
+##  Objective
 
 - Understand and clean the dataset  
 - Perform data preprocessing and feature transformation  
@@ -145,6 +145,6 @@ pip freeze > requirements.txt
 
 ---
 
-## 🙏 Acknowledgements
+##  Acknowledgements
 
 - Dataset Source: [Medical Cost Personal Datasets - Kaggle](https://www.kaggle.com/datasets/mirichoi0218/insurance)

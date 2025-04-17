@@ -50,9 +50,9 @@ def predict():
         ]])
 
         prediction = model.predict(final_input)
-        output = "Yes" if prediction[0] == 1 else "No"
+        output = "Claimed" if prediction[0] == 1 else "Not Claimed"
 
-        return render_template("index.html", prediction_text=f"Insurance Claim Prediction: {output}")
+        return render_template("index.html", prediction_text=f"Insurance can be {output}")
 
     except ValueError:
         return render_template("index.html", prediction_text="Please enter valid numerical values.")
